@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "9425b33d-5a62-48ab-bc64-03e4de0a830e",
+		"name": "NewmanTestCollection",
+		"description": "Collection created to test newman usage\r\n",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetExample",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4df1737f-86d6-418d-a670-814ee6eac6e4",
+						"exec": [
+							"pm.test('Validations 1', function(){\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test('Validations2', function(){\r",
+							"    pm.expect(pm.response.headers.get('X-Cache')).to.contain('HIT')\r",
+							"})\r",
+							"\r",
+							"pm.test('Validations 3', function(){\r",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.include('text/html')\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://example.com",
+					"protocol": "https",
+					"host": [
+						"example",
+						"com"
+					]
+				},
+				"description": "API request with GET HTTP method to use as an example\r\n"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
